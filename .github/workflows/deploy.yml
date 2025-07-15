@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -22,10 +22,10 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }} << 'EOF'
-            cd /root/weather-my-mood
-            git pull origin main
-            pip3 install -r requirements.txt
-            pkill -f "streamlit"
-            nohup streamlit run app.py --server.port=8501 --server.address=0.0.0.0 > streamlit.log 2>&1 &
-          EOF
+          ssh root@YOUR.SERVER.IP "
+            cd /root/py-weather-my-mood &&
+            git pull origin main &&
+            source venv/bin/activate &&
+            pip install -r requirements.txt &&
+            systemctl restart streamlit
+          "
