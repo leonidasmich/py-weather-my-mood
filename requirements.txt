@@ -1,0 +1,15 @@
+transformers
+torch
+sentencepiece
+ollama
+requests
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+prophet
+sqlalchemy
+streamlit
+python-dateutil
+python-dotenv

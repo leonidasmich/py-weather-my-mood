@@ -1,0 +1,4 @@
+__pycache__/
+.env
+mood_logs.db
+venv/
